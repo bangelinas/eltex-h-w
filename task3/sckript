@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd /home/student/Eltex-HW/eltex-h-w/task3/work
+
+for i in {1..20}
+do
+	mkdir $i
+	touch $i/$i.txt
+	ln -s $i/$i.txt
+	echo $i > $i/$i.txt
+	for file in /home/Eltex-HW/eltex-h-w/task3/work/ $i/$i.txt
+	do
+    		if ! grep -q 4 "$file"
+    		then
+        	echo "Удаление файла $file..."
+        	rm "$file"
+    		fi
+    	done
+    	
+done
+
+echo "Меняем содержимае файла 14" > 14/14.txt
